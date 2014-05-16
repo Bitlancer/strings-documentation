@@ -50,21 +50,32 @@ Device names are assigned automatically and randomly from one or more dictionari
 
 ### Public DNS Entries
 
-Strings will automatically add public DNS entries for all of your devices except load-balancers when they are spun up. The DNS entries are created based on the following formula: device-name.target.organization-infra.net. Ex: python.dfw01.bitlancer-infra.net
+With the excpetion of load-balancers, Strings will automatically add public DNS entries for all of your devices when they are spun up. The DNS entries are created based on the following formula: device-name.target.organization-infra.net. 
+
+Ex: python.dfw01.bitlancer-infra.net
 
 ## Formations
 
-A formation represents a group of devices that should be managed together. Typically this includes services that are clustered like MySQL or LDAP. A formation can and often does contain only a single device however.
+A formation represents a logical grouping of tightly coupled devices that are managed together. Think cluster. A formation does not need to contain more then one device however.
+
+Two good examples of formations are:
+
+* A MySQL formation composed of a MySQL master and a MySQL slave
+* A web formation composed of a load-balancer and multiple application servers
 
 ## Applications
 
-An application is a logical grouping of devices. It is composed of one or more formations and represents the full stack of services that are required to run the larger service you are offering. For example, a website built on Wordpress would require Apache, PHP, and MySQL and therefore would be composed of an Apache-PHP formation and a MySQL formation.
+An application is composed of one or more formations and represents the full stack of services that are required to run the larger service you are offering. For example, a website built on Wordpress would require Apache, PHP, and MySQL and therefore might be composed of an Apache-PHP application server formation and a MySQL formation.
 
 ### Application Deployment
 
-Putting application code and data in place is handled via *Deploy Scripts*. A *Deploy Script* is nothing more then an executable that handles the afformentioned tasks within the context of your application.
+Putting application code and data in place is handled via *Deploy Scripts*.
 
-Currently, Strings requires you to host your deploy script in a version control system. This is generally best practice but it also allows Strings to run whatever code you would like. For security, this is done within your environment on a *Jump Server*.
+#### Deploy Script
+
+A *Deploy Script* is an executable that handles setting up your application. This can and often does include setting up your application code, pulling in libraries, running schema upgrades, and a slew of other tasks.
+
+Currently Strings requires you to host your deploy script in a version control system. As a result, your deploy script can be written in any language or around any framework you would like. In order for us to support this kind of flexibility without compromising security we run your deploy script in your environment on a *Jump Server*.
 
 #### Jump Server
 
@@ -72,9 +83,9 @@ A *Jump Server* is a server living in your environment within a particular regio
 
 #### Deploy User
 
-A *Deploy User* is a special user account that is used when executing deploy scripts. This user account is accompanied by a team, since privileges can only be granted on teams, and a sudo role, which controls what the deploy user can execute as root during a deploy.
+A *Deploy User* is a special user account that the deploy script is run under. This account is required to have a username of `remoteexec`.
 
-This account is required to have a username of `remoteexec`.
+This user account is accompanied by a team, since privileges can only be granted on teams, and a sudo role, which controls what the deploy user can execute as root during a deploy.
 
 #### Using the Strings Deploy Toolkit
 
@@ -82,7 +93,7 @@ The Strings Deploy Toolkit provides a framework for deploying applications withi
 
 #### Using a Custom or 3rd Party Deploy Framework
 
-As mentioned above Strings can execute whatever code you'd like during deploy. For it to be useful however, you will need to parse and utilize the parameters Strings passes to the deploy script. These parameters include information about the application such as its name and the list of servers and their roles. Below is a example of what Strings will pass to the deploy script. In addition, Strings will pass any user supplied parameters that were specified with the *Deploy Script* within the control panel.
+As mentioned above Strings can execute code of your choosing during deploy. For it to be useful however, you will need to parse and utilize the parameters Strings passes to the deploy script. These parameters include information about the application such as its name and the list of servers and their roles. Below is a example of what Strings will pass to the deploy script. In addition, Strings will pass any user supplied parameters that were specified with the *Deploy Script* when it was created within the control panel.
 
 ```
 --exec-id 836 --type Application --name test --server-list python.dfw01.int.example-infra.net,exampleorg::role::lamp_server,stringed::profile::apache_phpfpm,stringed::profile::mysql;anaconda.dfw01.int.example-infra.net,exampleorg::role::lamp_server,stringed::profile::apache_phpfpm,stringed::profile::mysql --verbosity 4 --repo git@github.com:Bitlancer/strings-sample-app.git
@@ -94,15 +105,15 @@ These parameters are custom to Strings. If you're using a 3rd part deploy framew
 
 ### Puppet 
 
-(Summary)
+Puppet is a framework for automating the configuration of a server.
+
+### Master vs Masterless Puppet
 
 ### Hiera
 
-(Summary)
-
 ### Roles, Profiles, & Components
 
-(Summary of http://www.craigdunn.org/2012/05/239/. Definitely give Craig credit)
+(Summary of http://www.craigdunn.org/2012/05/239/)
 
 Ex:
 
