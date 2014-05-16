@@ -107,8 +107,6 @@ These parameters are custom to Strings. If you're using a 3rd part deploy framew
 
 Puppet is a framework for automating the configuration of a server.
 
-### Master vs Masterless Puppet
-
 ### Hiera
 
 ### Roles, Profiles, & Components
