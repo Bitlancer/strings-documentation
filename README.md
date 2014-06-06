@@ -67,6 +67,18 @@ Two good examples of formations are:
 
 An application is composed of one or more formations and represents the full stack of services that are required to run the larger service you are offering. For example, a website built on Wordpress would require Apache, PHP, and MySQL and therefore might be composed of an Apache-PHP application server formation and a MySQL formation.
 
+### Application DNS
+
+Strings allows you to setup DNS records within the context of your application to serve as a simple mechanism for service discovery. To demonstrate this feature, lets look at an example.
+
+* You've setup a wordpress application, www, which is composed of two formations: app server formation, database formation. The database formation is composed of two mysql servers, longo & jago, in a master-master replication mode.
+
+* You setup application dns entries for each of the mysql servers as follows: db01.www.example-infra.net -> longo, db02.www.example-infra.net -> jago.
+
+* You configure wordpress to use the dns entries setup in the previous step.
+
+This configuration is advantageous because you can easily replace your database nodes, in the event of a node failure, upgrade, etc, without altering your application.
+
 ### Application Deployment
 
 Putting application code and data in place is handled via *Deploy Scripts*.
