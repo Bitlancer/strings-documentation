@@ -123,8 +123,6 @@ Puppet is a framework for automating the configuration of a server.
 
 ### Roles, Profiles, & Components
 
-(Summary of http://www.craigdunn.org/2012/05/239/)
-
 Ex:
 
 ```puppet
