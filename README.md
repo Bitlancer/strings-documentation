@@ -1,9 +1,12 @@
-Bitlancer Strings PaaS Documentation
+Bitlancer Strings Documentation
 =====================
 
-New to Strings? We recommend you review the [Getting Started](#getting-started) guide.
+We built our industry experience into an open source project that manages cloud infrastructure and code deployment. Strings is primarily a point-and-click control panel targeted towards those searching for easy infrastructure management "out of box" for Rackspace Cloud and OpenStack. It manages the entire lifecycle of infrastructure, including creation, "puppetization", code deployment, ongoing maintenance, and deprovisioning. Sound useful to you? Continue reading.
 
 ## Table of Contents
+- [Overview](#overview)
+- [Screenshots](#screenshots)
+- [Disclaimer](#disclaimer)
 - [Feedback & Contributions](#feedback--contributions)
 - [Getting Started](#getting-started)
 - [Devices](#devices)
@@ -32,9 +35,35 @@ New to Strings? We recommend you review the [Getting Started](#getting-started) 
 - [Troubleshooting](#troubleshooting)
   - [I can't login to a server](#i-cant-login-to-a-server)
 
+## Overview
+
+### Flexible Integration
+
+Strings integrates with Rackspace and (theoretically) OpenStack and uses Puppet, OpenLDAP, PowerDNS, and other open source tools to make launching, configuring, managing, and destroying servers a piece of cake. Automate package installation and configuration for almost anything, letting you and your Engineers focus on building and shipping code!
+
+### Central Authentication
+
+No more shell scripts to update and replace SSH keys. Control who can access your infrastructure and what permissions they have. The level of complexity is up to you! Manage users easily right from the (actually simple) web interface.
+
+### Automation
+
+Managing a lot of different configurations? Strings comes with out-of-the-box support for Apache, PHP, Tomcat, Java, Node.js, MySQL, MongoDB, Redis, RabbitMQ, and Postfix! We'll even train your Engineers on how to build integration themselves!
+
+### Maintain total control of your virtual machines and data
+
+Strings lets you keep things “in-house” while providing the automation you need and the support of whatever technical stack you’ve chosen to use.
+
+## Screenshots
+
+Want to see Strings in action? We've included some [great screenshots](/screenshots) as part of this repository.
+
+## Disclaimer
+
+Strings originally started as a product of Bitlancer and has since been converted to an open source project. Please keep this in mind when reviewing documentation, as there may be some legacy sales pitches and reference to a hosted service ;-) You will likely need our assistance setting Strings up and making it useful for your team. We're happy to help.
+
 ## Feedback & Contributions
 
-We welcome feedback and contributions from our users! If you would like to contribute or leave feedback, please open an issue or issue a pull request with the edits or additions.
+We welcome feedback and contributions from the community! If you would like to contribute or leave feedback, please open an issue or issue a pull request with the edits or additions.
 
 ## Getting Started
 
@@ -247,6 +276,4 @@ We all make mistakes :)
 
 4) I tried everything above, what now?
 
-Contact us at support@bitlancer.com and we'll help you troubleshoot your problem.
-
-
+Contact us at support@bitlancer.com, or open an issue on Github, and we'll try to help resolve your problem.
