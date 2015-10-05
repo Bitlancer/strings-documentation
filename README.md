@@ -5,7 +5,7 @@ We built our industry experience into an open source project that manages cloud 
 
 ## Table of Contents
 - [Overview](#overview)
-- [Screenshots](#screenshots)
+- [Screenshots & Data Sheet](#screenshots--data-sheet)
 - [Disclaimer](#disclaimer)
 - [Feedback & Contributions](#feedback--contributions)
 - [Getting Started](#getting-started)
@@ -53,9 +53,9 @@ Managing a lot of different configurations? Strings comes with out-of-the-box su
 
 Strings lets you keep things “in-house” while providing the automation you need and the support of whatever technical stack you’ve chosen to use.
 
-## Screenshots
+## Screenshots & Data Sheet
 
-Want to see Strings in action? We've included some [great screenshots](/screenshots) as part of this repository.
+Want to see Strings in action? We've included some [great screenshots](/screenshots) as part of this repository. This [data sheet](datasheet.pdf) might also be quite useful.
 
 ## Disclaimer
 
